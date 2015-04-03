@@ -1,12 +1,3 @@
-<?php
-session_start();
-require 'tweetServer/config.php';
-$access_token = $twitter->getAccessToken($_REQUEST['oauth_token'], $_REQUEST['oauth_verifier']);
-$connection = new TwitterOAuth($APIKey, $APISecret, $access_token['oauth_token'], $access_token['oauth_token_secret']);
-$user = $connection->get("account/verify_credentials");
-print_r($user);
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
