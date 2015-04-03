@@ -2,6 +2,20 @@
 
 require 'config.php';
 
+/*
+ * Function to sanitize input
+ * Param 1: Input string
+ */
+function sanitize($string) {
+    return strip_tags(htmlspecialchars($string));
+}
+
+/*
+ * Sanitize parameters from web
+ */
+foreach ($_GET as $param => $value) {
+    $_GET[$param] = sanitize($value);
+}
 
 /*
  *  Read GET params
